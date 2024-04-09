@@ -15,7 +15,7 @@ const ListRender = () => {
 
     setUsers((prevUsers) => {
       return prevUsers.filter((user) => numeroAleatorio !== user.id);
-      //Para cada usuário (user) no array prevUsers, estamos verificando se o id do usuário é diferente do numeroAleatorio. Se for, o usuário é mantido no array resultante; caso contrário, é excluído.
+      //Para cada usuário (user) no array prevUsers(users), estamos verificando se o id do usuário é diferente do numeroAleatorio. Se for diferente, o usuário é mantido no array resultante; caso seja igual, é excluído.
     });
   };
 

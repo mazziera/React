@@ -3,7 +3,7 @@ import { useState } from "react";
 const GerenciandoDados = () => {
   let numero = 10; // variavel normal
 
-  const [valor, setValor] = useState(20); // React Hook
+  const [valor, setValor] = useState(20); //State = React Hook
 
   return (
     <>
