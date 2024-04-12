@@ -1,11 +1,11 @@
-//components
+//style file
 import "./App.css";
+
 
 //imagens
 import Cidade from "./assets/city.jpg";
 
 function App() {
-  
 
   return (
     <>
