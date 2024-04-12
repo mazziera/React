@@ -1,12 +1,12 @@
 const UserDetails = ({ name, age, job }) => {
     return (
       <>
-        <h1>O usuário poderá tirar a CNH?</h1>
+        
   
-        <h3>{name}</h3>
+        <h2>{name}</h2>
         <p>idade: {age}</p>
         <p>profissão: {job}</p>
-        {age >= 18 ? <p>Pode tirar a cnh</p> : <p>Menor de idade</p>}
+        {age >= 18 ? <p>Esta pessoa pode tirar a cnh</p> : <p>Menor de idade!</p>}
       </>
     );
   };
