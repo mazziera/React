@@ -17,7 +17,7 @@ const ArrayTarefa4 = () => {
   ));
 
   return (<>{userDetailsList}</>)
-  // está retornando um elemento JSX que contém o array do componente UserDetails gerada pelo método map()
+  // está retornando um elemento JSX que contém o array dos componentes UserDetails gerada pelo método map(), na qual cada componente é uma pessoa.
 };
 
 export default ArrayTarefa4; {/*Componente pai */}
