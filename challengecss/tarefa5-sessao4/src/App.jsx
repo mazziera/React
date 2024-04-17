@@ -14,16 +14,14 @@ function App() {
 
   return (
     <>
+      <h1>Showroom Carros</h1>
 
-    <h1>Showroom Carros</h1>
-  
       <div>
-        {cars.map( (car) => (
-          <Car key={car.id} car={car}> </Car>
+        {/* renderizando carro por carro, utilizando o componente Car */}
+        {cars.map((car) => (
+          <Car key={car.id} car={car} />
         ))}
       </div>
-    
-      
     </>
   );
 }

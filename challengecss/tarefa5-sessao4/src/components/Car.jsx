@@ -1,16 +1,18 @@
-import styles './Car.module.css'
+import styles from "./Car.module.css";
 
-const Car = ({cars}) => {
+// Definindo o componente Car que recebe um carro como propriedade desestruturada
+const Car = ({ car }) => {
+  return (
+    <>
+      {/* Renderizando as propriedades do carro */}
+      <div className={styles.carContainer}>
+        <h3> {car.brand}</h3>
+        <p>Modelo:{car.model}</p>
+        <p>Ano:{car.year}</p>
+      </div>
+    </>
+  );
+};
 
-    return(
-
-        <>
-        <h3>{cars.brand}</h3>
-        <p>{cars.model}</p>
-        <p>{cars.year}</p>
-        
-        </>
-    )
-}
-
-export default Car
+// Exportando o componente Car
+export default Car;
