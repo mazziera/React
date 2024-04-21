@@ -7,7 +7,7 @@ const ArrayTarefa4 = () => {
     { id: 3, nome: "Clara", idade: 13, profissao: "Estudante" },
   ];
 
-  const userDetailsList = pessoas.map((pessoa) => (
+  const userDetailsArray = pessoas.map((pessoa) => (
     <UserDetails
       key={pessoa.id}
       name={pessoa.nome}
@@ -19,7 +19,7 @@ const ArrayTarefa4 = () => {
   return (<>
   <h1>O usuário poderá tirar a CNH?</h1>
   
-  {userDetailsList}</>)
+  {userDetailsArray}</>)
   // está retornando um elemento JSX que contém o array dos componentes UserDetails gerada pelo método map(), na qual cada componente é uma pessoa.
 };
 

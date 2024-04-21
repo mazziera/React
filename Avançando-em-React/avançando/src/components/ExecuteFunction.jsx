@@ -1,9 +1,10 @@
-const ExecuteFunction = () => {
+const ExecuteFunction = ({funtionAsProps}) => {
+    
 
     return(
         <>
         <h2>Função executada como props</h2>
-        <button onClick={showMessage}> Clique aqui para executar a função</button>
+        <button onClick={funtionAsProps}> Clique aqui para executar a função</button>
         </>
     )
 

@@ -1,0 +1,22 @@
+div{
+    margin-bottom: 40px;
+}
+.variavel_normal{
+    padding: 10px;
+    background-color: cornflowerblue;
+    color: black;
+    border: 2px solid cornflowerblue;
+}
+
+.variavel_normal button{
+    border: none;
+}
+
+.variavel_use_State{
+    padding: 20px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    border: 2px solid red;
+    box-shadow: 1px 1px 15px red;
+}

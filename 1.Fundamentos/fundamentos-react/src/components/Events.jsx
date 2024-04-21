@@ -7,8 +7,11 @@ const Events = () => {
     <>
       <div>
         <button onClick={handleEventoClique}>Evento: Clique aqui!</button>
+      </div>
 
-        <button onClick={() => (console.log("Evento inline/simples"))}>Evento simples: Clique aqui tambem</button>
+      <div>
+      <button onClick={() => (console.log("Evento inline/simples"))}>Evento inline: Clique aqui tambem</button>
+
       </div>
     </>
   );
