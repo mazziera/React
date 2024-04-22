@@ -1,16 +1,17 @@
 
-.carContainer{
+.car_container{
     padding: 5px 10px;
     margin-bottom: 20px;
     border-radius: 10px;
     background-color: white;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: black;
-    border: 1px solid red;
+    border: 2px solid red;
+    box-shadow: 1px 1px 15px red;
 }
 
 
-.carContainer > h3{
+.car_container > h3{
     
     font-size: 25px;
     font-style: italic;

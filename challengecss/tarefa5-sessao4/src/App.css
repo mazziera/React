@@ -6,7 +6,9 @@
 }
 
 
-
+h1{
+  text-shadow: 1px 1px 7px yellow;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {

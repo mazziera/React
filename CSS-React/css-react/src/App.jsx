@@ -25,7 +25,8 @@ function App() {
     {/* css dinamico com classes */}
     <h2 className='title-css-dinamic'>CSS Dinâmico</h2>
     <h3 className= {titleDinamic  === true ? "redTitle" : "redTitleFalse"}>este subtitulo vai ter classe dinamica</h3>
-    {/* pode ser feito assim também: className= {title ? "redTitle" : "redTitleFalse"}*/}
+    {/* pode ser feito assim também: className= {title ? "redTitle" : "redTitleFalse"}*
+    as classes estão setadas no arquivo index.css/}
 
     {/* CSS Modules */}
     <h2 className='title-css-modules'>CSS Modules</h2>
