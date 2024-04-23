@@ -1,0 +1,23 @@
+form{
+    width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+    color: black;
+}
+
+h4{
+    color: red;
+}
+
+input, textarea, select{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.button_submit{
+    cursor: pointer;
+}

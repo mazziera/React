@@ -6,6 +6,7 @@ const Car = ({ car }) => {
     <>
       {/* Renderizando as propriedades do carro */}
       <div className={styles.car_container}>
+        {/* css dinamico e scoped */}
         <h3> {car.brand}</h3>
         <p>Modelo:{car.model}</p>
         <p>Ano:{car.year}</p>
