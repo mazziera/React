@@ -1,0 +1,79 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Camisa",
+      "price": 59.9
+    },
+    {
+      "id": "2",
+      "name": "Calça vermelha",
+      "price": 90
+    },
+    {
+      "id": "3",
+      "name": "Boné aba reta",
+      "price": 29.9
+    },
+    {
+      "id": "e7b4",
+      "name": "mouse",
+      "price": "90"
+    },
+    {
+      "id": "9949",
+      "name": "Teclado",
+      "price": "110"
+    },
+    {
+      "id": "4422",
+      "name": "Cadeira",
+      "price": "300"
+    },
+    {
+      "id": "96ed",
+      "name": "Faca",
+      "price": "5"
+    },
+    {
+      "id": "6ccc",
+      "name": "Gabinete",
+      "price": "1000"
+    },
+    {
+      "id": "ecb0",
+      "name": "Gabinete",
+      "price": "1000"
+    },
+    {
+      "id": "9541",
+      "name": "Gabinete",
+      "price": "1000"
+    },
+    {
+      "id": "501d",
+      "name": "Gabinete",
+      "price": "1000"
+    },
+    {
+      "id": "d620",
+      "name": "Gabinete",
+      "price": "1000"
+    },
+    {
+      "id": "cb0c",
+      "name": "notebook",
+      "price": "2500"
+    },
+    {
+      "id": "dc5e",
+      "name": "notebook",
+      "price": "2500"
+    },
+    {
+      "id": "e485",
+      "name": "Ventilador",
+      "price": "90"
+    }
+  ]
+}
