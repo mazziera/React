@@ -73,7 +73,7 @@ function App() {
       <h1>Lista de Produtos</h1>
 
       <ul>
-        {items && products.map((product) => (
+        {items && items.map((product) => (
           <li key={product.id}>
             {product.name} - R$: {product.price}
           </li>

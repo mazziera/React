@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 // 4 - custom hook
 export const useFetch = (url) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null); // dados recebidos do banco de dados
 
   //5 refatorando o POST
   const [config, setConfig] = useState(null); // configura o metodo e cabeçalho do POST
@@ -20,19 +20,6 @@ export const useFetch = (url) => {
     getData();
   }, [url, callFetch]);
 
-  // mudando a configuração do metodo
-  const httpConfig = (data, method) => {
-    if(method === "POST") {
-       setConfig({
-        method,
-        headers: { "Content-Type": "application/json" }, /*tipo do conteudo da manipulaçao de dados(json) */
-        body: JSON.stringify(data) /*transformando o state data em um json */
-       })
-
-       setMethod(method) // alterando o metodo quando enviar a requisição
-    }
-  }
-
   //5 refatorando o POST
   useEffect(() => {
     const httpRequest = async () => {
@@ -44,10 +31,25 @@ export const useFetch = (url) => {
 
         setCallFetch(returnData);
       }
-    }
+    };
 
     httpRequest()
   }, [config, method, url]);
 
-  return { data, httpConfig }; //valor que vai receber no momento que chamar o hook, no App.js
+  // mudando a configuração do metodo
+  const httpConfig = (data, method) => {
+    if(method === "POST") {
+       setConfig({
+        method: "POST",
+        headers: { "Content-Type": "application/json" }, /*tipo do conteudo da manipulaçao de dados(json) */
+        body: JSON.stringify(data) /*transformando o state data em um json */
+       })
+
+       setMethod(method) // alterando o metodo quando enviar a requisição
+    }
+  }
+
+  
+
+  return { data, httpConfig }; //valor que vai receber no momento que chamar o hook, no App.jsx
 };

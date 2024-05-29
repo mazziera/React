@@ -34,17 +34,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <CarDetails brand= " Volskwagen" model= " gol" km={35000} color=" prata" newCar={false}/> */}
 
     {/* reaproveitando componentes */}
-    {/* <CarDetails brand= " Fiat" model= " uno" km={0} color= " vermelho" newCar={true}/> */}
-    {/* <CarDetails brand= " Chevrolet" model= " camaro" km={80000} color= " amarelo" newCar={false}/> */}
+    {/* <CarDetails brand= " Fiat" model= " uno" km={0} color= " vermelho" newCar={true}/>
+    <CarDetails brand= " Chevrolet" model= " camaro" km={80000} color= " amarelo" newCar={false}/> */}
 
     {/* children props */}
-    <Container>
+    {/* <Container>
       <p>Este é o conteúdo</p>
     </Container>
 
     <Container componentValue>
       <h5>Conteudo distinto do componente acima</h5>
-    </Container>
+    </Container> */}
 
     {/* passando uma função como props */}
     {/* simulando um componante pai  */}
