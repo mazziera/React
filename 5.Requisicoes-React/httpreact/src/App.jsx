@@ -7,35 +7,23 @@ import "./App.css";
 // url => db.json simula um banco de dados
 const url = "http://localhost:3000/products";
 
-//4 custom hook
+//4- custom hook
 import { useFetch } from "./hooks/useFetch";
 
 function App() {
-
   const [products, setProducts] = useState([]); // salvar os dados do banco de dados
 
   // 4- custom hook e 5 - refatorando o POST
-  const {data: items, httpConfig}= useFetch(url)// importando o retorno dos valores do hook
-
+  const { data: items, httpConfig, loading, error } = useFetch(url); // importando o retorno dos valores do hook
 
   // 1- Resgatando os dados do banco de dados
   const [name, setName] = useState(""); //nome do produto
   const [price, setPrice] = useState(""); //preço do produto
 
-  //fazendo a requisição no banco de dados e buscando os dados dos produtos
-  // useEffect(() => {
-  //   async function getData() {
-  //     const response = await fetch("http://localhost:3000/products")
+  //7- loading com prevenção de ações repetidas do usuario
+  const isFormEmpty = !name.trim() || !price.trim(); 
 
-  //     const returnData = await response.json()
-
-  //     setProducts(returnData)
-  //   }
-
-  //   getData()
-  // }, []);
-
-  // 2- adicionando dados(produtos) 
+  // 2- adicionando dados(produtos)
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -44,42 +32,40 @@ function App() {
       name: name,
       price: price,
     };
-    
-    // Configurando a requisição para o metodo POST
-    // const response = await fetch(url, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" }, /*tipo do conteudo da manipulaçao de dados(json) */
-    //   body: JSON.stringify(newProduct) /*transformando o objeto newProduct em um json */
-    // });
-
-    // console.log(newProduct);
-
-    // // 3- Carregamento de dados dinâmicos
-    // const addedProduct = await response.json() // transforma novamente em um objeto JS.
-
-    // setProducts((previousProducts) => [...previousProducts, addedProduct]) //O operador spread, copia todos os produtos do estado anterior para o novo estado, atualizando o componente de forma instantanea
 
     //5- refatorando o POST
-    httpConfig(newProduct, "POST")
+    httpConfig(newProduct, "POST");
 
-    setName("")
-    setPrice("")
-
+    setName("");
+    setPrice("");
   };
 
-  
+  //7- deletando um produto
+  const handleDelete = (id) => {
+    httpConfig(id, "DELETE");
+  };
+
   return (
     <div className="app">
       <h1>Lista de Produtos</h1>
 
-      <ul>
-        {items && items.map((product) => (
-          <li key={product.id}>
-            {product.name} - R$: {product.price}
-          </li>
-        ))}
-      </ul>
+      {/* 6- loading de dados */}
+      {loading && <p>Carregando produtos...</p>}
+      {error && <p>Erro: {error}</p>} {/* Exibir mensagem de erro */}
 
+      {!loading && !error && (
+        <ul>
+          {items &&
+            items.map((product) => (
+              <li key={product.id}>
+                {product.name} - R$: {product.price} Reais - <button 
+                onClick={() => handleDelete(product.id)}>Excluir</button>
+              </li>
+            ))}
+        </ul>
+      )}
+
+      {/*2- adicionando dados(produtos)  */}
       <div className="adicionando_produto_container">
         <form onSubmit={handleSubmit}>
           <label>
@@ -103,8 +89,9 @@ function App() {
               onChange={(event) => setPrice(event.target.value)}
             />
           </label>
-
-          <button>Adicionar Produto</button>
+          {/* 7- loading com prevenção de ações repetidas do usuario */}
+          {loading && <button  disabled>Aguarde</button>  }
+          {!loading && <button disabled={isFormEmpty}>Adicionar Produto</button>} 
         </form>
       </div>
     </div>

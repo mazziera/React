@@ -1,55 +1,92 @@
 import { useState, useEffect } from "react";
 
-// 4 - custom hook
+// 4- custom hook
 export const useFetch = (url) => {
   const [data, setData] = useState(null); // dados recebidos do banco de dados
 
-  //5 refatorando o POST
+  //5- refatorando o POST
   const [config, setConfig] = useState(null); // configura o metodo e cabeçalho do POST
   const [method, setMethod] = useState(null); // seta o metodo a ser utilizado(POST, GET, UPDATE...)
   const [callFetch, setCallFetch] = useState(false); //traz os dados atualizados do componente
 
+  //6- loading de dados
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null); // Adicione o estado de erro
+
+  //8- deletando um produto
+  const [itemId, setItemId] = useState(null);
+
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(url);
-      const returnData = await response.json();
+      setLoading(true); //6- loading
 
-      setData(returnData); // valor da requisição feita no banco de dados
+      //7- tratando erros
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+
+          throw new Error("erro ao carregar os dados");
+        }
+        const returnData = await response.json();
+        setData(returnData); // valor da requisição feita no banco de dados
+        
+      } catch (error) {
+        setError(error.message);
+
+      } finally {
+        setLoading(false); //6 loading
+      }
     };
 
     getData();
   }, [url, callFetch]);
 
-  //5 refatorando o POST
+  //5- refatorando o POST
   useEffect(() => {
     const httpRequest = async () => {
-      if (method === "POST") {
-        const getOptions = [url, config]; // obtém de forma dinamica uma url e a configuração do metodo
+      if (!config || !method) return; // Verifique se config e method não são nulos
 
-        const response = await fetch(...getOptions);
+      let fetchOptions = [url, config];
+      
+      if (method === "DELETE") {
+        fetchOptions = [`${url}/${itemId}`, config];
+      }
+
+      try {
+        const response = await fetch(...fetchOptions);
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
         const returnData = await response.json();
 
-        setCallFetch(returnData);
+        setCallFetch((prev) => !prev); // Toggle para atualizar os dados
+      } catch (error) {
+        setError(error.message);
       }
     };
 
-    httpRequest()
-  }, [config, method, url]);
+    httpRequest();
+  }, [config, method, url, itemId]);
 
   // mudando a configuração do metodo
   const httpConfig = (data, method) => {
-    if(method === "POST") {
-       setConfig({
+    if (method === "POST") {
+      setConfig({
         method: "POST",
-        headers: { "Content-Type": "application/json" }, /*tipo do conteudo da manipulaçao de dados(json) */
-        body: JSON.stringify(data) /*transformando o state data em um json */
-       })
-
-       setMethod(method) // alterando o metodo quando enviar a requisição
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    } else if (method === "DELETE") {
+      setConfig({
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+      setItemId(data);
     }
-  }
+    setMethod(method); // alterando o metodo quando enviar a requisição
+  };
 
-  
-
-  return { data, httpConfig }; //valor que vai receber no momento que chamar o hook, no App.jsx
+  return { data, httpConfig, loading, error }; //valor que vai receber no momento que chamar o hook, no App.jsx
 };
