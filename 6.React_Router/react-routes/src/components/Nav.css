@@ -2,3 +2,12 @@ nav{
     display: flex;
     justify-content: space-around;
 }
+
+nav a:hover{
+    color: aqua;
+}
+
+.active{
+    color: white;
+    background-color: black;
+}

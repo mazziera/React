@@ -4,13 +4,15 @@ import './App.css'
 // config react router
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
+//components
+import Nav from './components/Nav.jsx';
+
 //pages
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
 
-//components
-import Nav from './components/Nav.jsx';
 
 function App() {
 
@@ -25,6 +27,9 @@ function App() {
         <Route path ="/" element={<Home />} />
         <Route path= "/about" element= {<About />} />
         <Route path="/contact" element={<Contact />}/>
+
+        {/* 4 - Rota Dinâmica */}
+        <Route path= "/products/:id" element={ <ProductDetail />}/>
       </Routes>
      </BrowserRouter>
      </>

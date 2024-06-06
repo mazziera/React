@@ -1,3 +1,6 @@
+// 2- Links com React Router
+
+//component da biblioteca
 import { Link } from "react-router-dom";
 
 import "./Nav.css";
