@@ -2,6 +2,7 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+<<<<<<< HEAD
 ## instalando versão funcional/sem bugs do json server
 
     
@@ -16,6 +17,19 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 ## instalando o React-Router-DOM
     npm install react-router-dom
+=======
+
+instalando versão funcional/sem bugs do json server
+
+    no terminal: npm install json-server@0.17.0
+
+rodando o json server:
+
+    acessar o arquivo package.json
+    em scripts, adicionar: "server": "json-server --watch data/db.json --port 3000"
+    no terminal: npm run server
+
+>>>>>>> d3548a7d21e3015745c58ad65781f08d8dd8ccdc
 
 Currently, two official plugins are available:
 
