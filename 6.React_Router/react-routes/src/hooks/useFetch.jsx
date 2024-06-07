@@ -11,7 +11,7 @@ export const useFetch = (url) => {
 
   //6- loading de dados
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); // Adicione o estado de erro
+  const [error, setError] = useState(null); // Adiciona o estado de erro
 
   //8- deletando um produto
   const [itemId, setItemId] = useState(null);
@@ -44,7 +44,7 @@ export const useFetch = (url) => {
   //5- refatorando o POST
   useEffect(() => {
     const httpRequest = async () => {
-      if (!config || !method) return; // Verifique se config e method não são nulos
+      if (!config || !method) return; // Verifica se config e method não são nulos
 
       let fetchOptions = [url, config];
       
