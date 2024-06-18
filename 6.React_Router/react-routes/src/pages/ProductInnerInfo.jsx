@@ -1,4 +1,7 @@
-//utilizado para acessar os parâmetros da URL na qual o componente está renderizado. Isso é especialmente útil quando precisa extrair informações específicas diretamente da URL
+// 8- Pagina não encontrada
+
+
+/*utilizado para acessar os parâmetros da URL na qual o componente está renderizado. Isso é especialmente útil quando precisa extrair informações específicas diretamente da URL*/
 import { useParams } from "react-router-dom";
 
 const ProdutcInnerInfo = () => {
@@ -7,7 +10,7 @@ const ProdutcInnerInfo = () => {
 
   return (
     <>
-    <h2>Informações avançadas do produto: { id} </h2>
+    <h2>Informações avançadas do produto: {id} </h2>
     </>
   );
 };

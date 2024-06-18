@@ -1,4 +1,6 @@
-//utilizado para acessar os parâmetros da URL na qual o componente está renderizado. Isso é especialmente útil quando precisa extrair informações específicas diretamente da URL
+// 8- Pagina não encontrada
+
+/*utilizado para acessar os parâmetros da URL na qual o componente está renderizado. Isso é especialmente útil quando precisa extrair informações específicas diretamente da URL*/
 import { Link, useParams } from "react-router-dom";
 
 //hook
@@ -9,13 +11,13 @@ const ProductDetail = () => {
   const { id } = useParams(); // valor que faz referência ao id do produto da rota "/products/:id", no app.jsx
 
   //5 - Carregamento dinamico de um dado individual
-  const url = "http://localhost:3000/products/" + id;
+  const url = "http://localhost:3000/products/" + id; //id do produto, da variavel acima
   const { data: product, loading, error } = useFetch(url);
 
   return (
     <>
       {/* 5 - Carregamento dinamico de um dado individual */}
-      <p>Id do Produto: {id}</p>
+      <h3>Id do Produto: {id}</h3>
 
       {error && <p>Ocorreu um erro. Tente novamente mais tarde</p>}
 
@@ -23,7 +25,7 @@ const ProductDetail = () => {
 
       {product && (
         <div>
-          <h3>{product.name}</h3>
+          <h4>{product.name}</h4>
           <p>R${product.price} reais</p>
 
           {/* 6 - Nested Routes */}

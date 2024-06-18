@@ -1,7 +1,7 @@
 //component da biblioteca
 import { Link } from "react-router-dom";
 
-//hook
+//custom hook
 import { useFetch } from "../hooks/useFetch.jsx";
 
 //style file
@@ -10,13 +10,13 @@ import "./Home.css"
 const Home = () => {
     //3- carregamento de dados
     const url = "http://localhost:3000/products";
-    const {data:items, error} = useFetch(url);
+    const {data:items, error} = useFetch(url); //dados recebidos do banco de dados
 
     return(
         <>
         <h1>Produtos</h1>
 
-        {error && <p>{error}</p>}
+        {error && <p>{error}</p>} 
 
         <ul className="products">
             {items && items.map( (item) => (
